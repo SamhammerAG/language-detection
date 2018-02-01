@@ -1,120 +1,83 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B94DF83C-306C-4C28-B5F3-541AD9CBFAA6}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LanguageDetection</RootNamespace>
-    <AssemblyName>LanguageDetection</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Version>1.2.0</Version>
+    <PackageId>LanguageDetection.NETStandard</PackageId>
+    <Authors>Pēteris Ņikiforovs</Authors>
+    <Company>Pēteris Ņikiforovs</Company>
+    <Product>Pēteris Ņikiforovs</Product>
+    <Summary>Detect the language of a text using naive a Bayesian filter with generated language profiles from Wikipedia abstract xml, 99% over precision for 53 languages. Original author: Nakatani Shuyo.</Summary>
+    <Description>Detect the language of a text using naive a Bayesian filter with generated language profiles from Wikipedia abstract xml, 99% over precision for 53 languages. Original author: Nakatani Shuyo.</Description>
+    <Copyright>Copyright 2014 Pēteris Ņikiforovs</Copyright>
+    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/TechnikEmpire/language-detection</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TechnikEmpire/language-detection</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>nlp, language identification, language guessing, language detection, language detecting, language detector</PackageTags>
+    <PackageReleaseNotes>Ported to .NET Standard 2.0.</PackageReleaseNotes>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
+    <EmbeddedResource Include="Profiles\af" />
+    <EmbeddedResource Include="Profiles\ar" />
+    <EmbeddedResource Include="Profiles\bg" />
+    <EmbeddedResource Include="Profiles\bn" />
+    <EmbeddedResource Include="Profiles\cs" />
+    <EmbeddedResource Include="Profiles\da" />
+    <EmbeddedResource Include="Profiles\de" />
+    <EmbeddedResource Include="Profiles\el" />
+    <EmbeddedResource Include="Profiles\en" />
+    <EmbeddedResource Include="Profiles\es" />
+    <EmbeddedResource Include="Profiles\et" />
+    <EmbeddedResource Include="Profiles\fa" />
+    <EmbeddedResource Include="Profiles\fi" />
+    <EmbeddedResource Include="Profiles\fr" />
+    <EmbeddedResource Include="Profiles\gu" />
+    <EmbeddedResource Include="Profiles\he" />
+    <EmbeddedResource Include="Profiles\hi" />
+    <EmbeddedResource Include="Profiles\hr" />
+    <EmbeddedResource Include="Profiles\hu" />
+    <EmbeddedResource Include="Profiles\id" />
+    <EmbeddedResource Include="Profiles\it" />
+    <EmbeddedResource Include="Profiles\ja" />
+    <EmbeddedResource Include="Profiles\kn" />
+    <EmbeddedResource Include="Profiles\ko" />
+    <EmbeddedResource Include="Profiles\lt" />
+    <EmbeddedResource Include="Profiles\lv" />
+    <EmbeddedResource Include="Profiles\mk" />
+    <EmbeddedResource Include="Profiles\ml" />
+    <EmbeddedResource Include="Profiles\mr" />
+    <EmbeddedResource Include="Profiles\ne" />
+    <EmbeddedResource Include="Profiles\nl" />
+    <EmbeddedResource Include="Profiles\no" />
+    <EmbeddedResource Include="Profiles\pa" />
+    <EmbeddedResource Include="Profiles\pl" />
+    <EmbeddedResource Include="Profiles\pt" />
+    <EmbeddedResource Include="Profiles\ro" />
+    <EmbeddedResource Include="Profiles\ru" />
+    <EmbeddedResource Include="Profiles\sk" />
+    <EmbeddedResource Include="Profiles\sl" />
+    <EmbeddedResource Include="Profiles\so" />
+    <EmbeddedResource Include="Profiles\sq" />
+    <EmbeddedResource Include="Profiles\sv" />
+    <EmbeddedResource Include="Profiles\sw" />
+    <EmbeddedResource Include="Profiles\ta" />
+    <EmbeddedResource Include="Profiles\te" />
+    <EmbeddedResource Include="Profiles\th" />
+    <EmbeddedResource Include="Profiles\tl" />
+    <EmbeddedResource Include="Profiles\tr" />
+    <EmbeddedResource Include="Profiles\uk" />
+    <EmbeddedResource Include="Profiles\ur" />
+    <EmbeddedResource Include="Profiles\vi" />
+    <EmbeddedResource Include="Profiles\zh-cn" />
+    <EmbeddedResource Include="Profiles\zh-tw" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="LanguageDetector.cs" />
-    <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="LanguageProfile.cs" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Profiles\af" />
-    <None Include="Profiles\ar" />
-    <None Include="Profiles\bg" />
-    <None Include="Profiles\bn" />
-    <None Include="Profiles\cs" />
-    <None Include="Profiles\da" />
-    <None Include="Profiles\de" />
-    <None Include="Profiles\el" />
-    <None Include="Profiles\en" />
-    <None Include="Profiles\es" />
-    <None Include="Profiles\et" />
-    <None Include="Profiles\fa" />
-    <None Include="Profiles\fi" />
-    <None Include="Profiles\fr" />
-    <None Include="Profiles\gu" />
-    <None Include="Profiles\he" />
-    <None Include="Profiles\hi" />
-    <None Include="Profiles\hr" />
-    <None Include="Profiles\hu" />
-    <None Include="Profiles\id" />
-    <None Include="Profiles\it" />
-    <None Include="Profiles\ja" />
-    <None Include="Profiles\kn" />
-    <None Include="Profiles\ko" />
-    <None Include="Profiles\lt" />
-    <None Include="Profiles\lv" />
-    <None Include="Profiles\mk" />
-    <None Include="Profiles\ml" />
-    <None Include="Profiles\mr" />
-    <None Include="Profiles\ne" />
-    <None Include="Profiles\nl" />
-    <None Include="Profiles\no" />
-    <None Include="Profiles\pa" />
-    <None Include="Profiles\pl" />
-    <None Include="Profiles\pt" />
-    <None Include="Profiles\ro" />
-    <None Include="Profiles\ru" />
-    <None Include="Profiles\sk" />
-    <None Include="Profiles\sl" />
-    <None Include="Profiles\so" />
-    <None Include="Profiles\sq" />
-    <None Include="Profiles\sv" />
-    <None Include="Profiles\sw" />
-    <None Include="Profiles\ta" />
-    <None Include="Profiles\te" />
-    <None Include="Profiles\th" />
-    <None Include="Profiles\tl" />
-    <None Include="Profiles\tr" />
-    <None Include="Profiles\uk" />
-    <None Include="Profiles\ur" />
-    <None Include="Profiles\vi" />
-    <None Include="Profiles\zh-cn" />
-    <None Include="Profiles\zh-tw" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <UsingTask TaskName="LanguageDetection.Build.BinarizeLanguageProfileTask" AssemblyFile="$(SolutionDir)LanguageDetection.Build\bin\$(Configuration)\LanguageDetection.Build.dll" />
-  <Target Name="BeforeBuild">
-    <ItemGroup>
-      <Profiles Include="Profiles\*" />
-    </ItemGroup>
-    <ItemGroup>
-      <Languages Include="@(Profiles->'%(Filename)')" />
-    </ItemGroup>
-    <MakeDir Directories="$(IntermediateOutputPath)Profiles" />
-    <BinarizeLanguageProfileTask InputFilename="%(Profiles.Identity)" OutputFilename="$(IntermediateOutputPath)%(Profiles.Identity).bin.gz" />
-    <ItemGroup>
-      <EmbeddedResource Include="$(IntermediateOutputPath)Profiles\%(Languages.Identity).bin.gz">
-        <LogicalName>$(RootNamespace).Profiles.%(Languages.Identity).bin.gz</LogicalName>
-      </EmbeddedResource>
-    </ItemGroup>
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
+  
 </Project>

@@ -13,6 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,13 @@ namespace LanguageDetection
 {
     public class LanguageDetector
     {
+        private class JsonLanguageProfile
+        {
+            public string name = null;
+            public Dictionary<string, int> freq = null;
+            public int[] n_words = null;
+        }
+
         private static readonly Regex UrlRegex = new Regex("https?://[-_.?&~;+=/#0-9A-Za-z]{1,2076}", RegexOptions.Compiled);
         private static readonly Regex EmailRegex = new Regex("[-_.0-9A-Za-z]{1,64}@[-_0-9A-Za-z]{1,255}[-_.0-9A-Za-z]{1,255}", RegexOptions.Compiled);
         private const string ResourceNamePrefix = "LanguageDetection.Profiles.";
@@ -66,7 +74,7 @@ namespace LanguageDetection
         {
             AddLanguages(GetType().Assembly.GetManifestResourceNames()
                                            .Where(name => name.StartsWith(ResourceNamePrefix))
-                                           .Select(name => name.Substring(ResourceNamePrefix.Length).Replace(".bin.gz", ""))
+                                           .Select(name => name.Substring(ResourceNamePrefix.Length))
                                            .ToArray());
         }
 
@@ -76,11 +84,19 @@ namespace LanguageDetection
 
             foreach (string language in languages)
             {
-                using (Stream stream = assembly.GetManifestResourceStream(ResourceNamePrefix + language + ".bin.gz"))
-                using (Stream decompressedStream = new GZipStream(stream, CompressionMode.Decompress))
+                using (Stream stream = assembly.GetManifestResourceStream(ResourceNamePrefix + language))
+                using (var sw = new StreamReader(stream))
                 {
                     LanguageProfile profile = new LanguageProfile();
-                    profile.Load(decompressedStream);
+
+                    string json = sw.ReadToEnd();
+                    JsonLanguageProfile jsonProfile = JsonConvert.DeserializeObject<JsonLanguageProfile>(json);
+
+                    profile.Code = jsonProfile.name;
+                    profile.Frequencies = jsonProfile.freq;
+                    profile.WordCount = jsonProfile.n_words;
+
+                    //profile.Load(stream);
                     AddLanguageProfile(profile);
                 }
             }

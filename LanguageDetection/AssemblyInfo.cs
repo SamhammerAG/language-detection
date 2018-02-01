@@ -16,15 +16,6 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyVersion("1.1.0")]
-[assembly: AssemblyFileVersion("1.1.0")]
-[assembly: AssemblyInformationalVersion("1.1.0")]
-
-[assembly: AssemblyTitle("Language Detection")]
-[assembly: AssemblyDescription(".NET Port of Language Detection Library for Java")]
-[assembly: AssemblyCompany("Pēteris Ņikiforovs")]
-[assembly: AssemblyProduct("Language Detection")]
-[assembly: AssemblyCopyright("Copyright © Pēteris Ņikiforovs 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
