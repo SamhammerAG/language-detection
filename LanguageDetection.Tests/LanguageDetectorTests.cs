@@ -1,4 +1,5 @@
 ﻿// Copyright 2014 Pēteris Ņikiforovs
+// Copyright 2020 Samhammer AG
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -29,7 +30,7 @@ namespace LanguageDetection.Tests
                 "Ukrainas prezidenta pienākumu izpildītājs Oleksandrs Turčinovs trešdienas vakarā devis Krimas separātistu "
             };
 
-            Test("lv", texts, new[] { new[] { "en", "fr", }, new[] { "lt", "pt" } });
+            Test("lav", texts, new[] { new[] { "eng", "fra", }, new[] { "lit", "pol" } });
         }
 
         [Test]
@@ -42,7 +43,7 @@ namespace LanguageDetection.Tests
                 "il neige et le soleil brille et nous regardons la radio et la télé. le cinéma est très français"
             };
 
-            Test("fr", texts, new[] { new[] { "en", "it", "es", "pt" } });
+            Test("fra", texts, new[] { new[] { "eng", "ita", "est", "pol" } });
         }
 
         [Test]
@@ -50,9 +51,9 @@ namespace LanguageDetection.Tests
         {
             string[] texts = new[] { "Výsledky kvalifikace slopestylu na ZOH v Soči" };
 
-            Test("cs", texts);
-            Test("cs", texts, new[] { new[] { "cs", "sk" } });
-            Test("cs", texts, new[] { new[] { "en", "cs", "sk", "lv" } });
+            Test("ces", texts);
+            Test("ces", texts, new[] { new[] { "ces", "slk" } });
+            Test("ces", texts, new[] { new[] { "eng", "ces", "slk", "lav" } });
         }
 
         [Test]
@@ -64,7 +65,7 @@ namespace LanguageDetection.Tests
             detector.RandomSeed = 1;
             detector.AddAllLanguages();
 
-            Assert.AreEqual("sk", detector.Detect(text));
+            Assert.AreEqual("slk", detector.Detect(text));
             Assert.AreEqual(1, detector.DetectAll(text).Count());
             
             detector = new LanguageDetector();
@@ -73,7 +74,7 @@ namespace LanguageDetection.Tests
             detector.MaxIterations = 50;
             detector.AddAllLanguages();
 
-            Assert.AreEqual("sk", detector.Detect(text));
+            Assert.AreEqual("slk", detector.Detect(text));
             Assert.AreEqual(2, detector.DetectAll(text).Count());
         }
 

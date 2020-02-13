@@ -1,20 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.3.1</Version>
-    <PackageId>LanguageDetection.NETStandard</PackageId>
-    <Authors>Pēteris Ņikiforovs</Authors>
-    <Company>Pēteris Ņikiforovs</Company>
-    <Product>Pēteris Ņikiforovs</Product>
+    <Version>2.0.0</Version>
+    <PackageId>Samhammer.LanguageDetection</PackageId>
+    <Authors>Samhammer AG</Authors>
+    <Company>Samhammer AG</Company>
     <Summary>Detect the language of a text using naive a Bayesian filter with generated language profiles from Wikipedia abstract xml, 99% over precision for 53 languages. Original author: Nakatani Shuyo.</Summary>
     <Description>Detect the language of a text using naive a Bayesian filter with generated language profiles from Wikipedia abstract xml, 99% over precision for 53 languages. Original author: Nakatani Shuyo.</Description>
-    <Copyright>Copyright 2014 Pēteris Ņikiforovs</Copyright>
+    <Copyright>Copyright 2020 Samhammer AG</Copyright>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/TechnikEmpire/language-detection</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/TechnikEmpire/language-detection</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/SamhammerAG/language-detection</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SamhammerAG/language-detection</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>nlp, language identification, language guessing, language detection, language detecting, language detector</PackageTags>
     <PackageReleaseNotes>Convert all language pack codes to use 3 character ISO 639-3 codes.</PackageReleaseNotes>

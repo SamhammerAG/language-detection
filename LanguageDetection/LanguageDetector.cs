@@ -1,5 +1,6 @@
 ﻿// Copyright 2014 Pēteris Ņikiforovs
 // Copyright 2014 Nakatani Shuyo
+// Copyright 2020 Samhammer AG
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
